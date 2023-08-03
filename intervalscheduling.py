@@ -37,22 +37,21 @@ Select all three (1, 2), (2, 3) and (3, 4) as those are all compatible events an
 
 class Solution:
     def interval_scheduling(self, intervals):
-            #type intervals: list of int tuples
-            #return type: list of int tuples
-            def is_compatible(interval, result):
-                 for i in range(len(result)):
-                      if interval[0] < result[i][1]:
-                           return False
-            
-            sorted_intervals = sorted(intervals, key=lambda x: x[1])
-            result = []
+        def is_compatible(interval, result):
+                for i in range(len(result)):
+                    if interval[0] < result[i][1]:
+                        return False
+                return True
+        
+        sorted_intervals = sorted(intervals, key=lambda x: x[1])
+        result = []
 
-            for i in range(len(sorted_intervals)):
-                 if is_compatible(sorted_intervals[i], result):
-                      result.append(sorted_intervals[i])
-            
-            return result
-                      #TODO: Write code below to return an int tuples list with the solution to the prompt.
+        for i in range(len(sorted_intervals)):
+                if is_compatible(sorted_intervals[i], result):
+                    result.append(sorted_intervals[i])
+        
+        return result
+                    #TODO: Write code below to return an int tuples list with the solution to the prompt.
             
             # events = []
             # for i in range(len(intervals) - 1):
